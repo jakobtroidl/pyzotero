@@ -1563,8 +1563,9 @@ class Zotero:
                     t=self.library_type, u=self.library_id, c=ident
                 ),
             )
-        headers = {"If-Unmodified-Since-Version": str(modified)}
-        headers.update(self.default_headers())
+        # headers = {"If-Unmodified-Since-Version": str(modified)}
+        # headers.update(self.default_headers())
+        headers = self.default_headers()
         return requests.delete(url=url, params=params, headers=headers)
 
     @backoff_check
