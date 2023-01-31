@@ -1543,20 +1543,20 @@ class Zotero:
         params = None
         if isinstance(payload, list):
             params = {"itemKey": ",".join([p["key"] for p in payload])}
-            if last_modified is not None:
-                modified = last_modified
-            else:
-                modified = payload[0]["version"]
+            # if last_modified is not None:
+            #     modified = last_modified
+            # else:
+            #     modified = payload[0]["version"]
             url = build_url(
                 self.endpoint,
                 "/{t}/{u}/items".format(t=self.library_type, u=self.library_id),
             )
         else:
             ident = payload["key"]
-            if last_modified is not None:
-                modified = last_modified
-            else:
-                modified = payload["version"]
+            # if last_modified is not None:
+            #     modified = last_modified
+            # else:
+            #     modified = payload["version"]
             url = build_url(
                 self.endpoint,
                 "/{t}/{u}/items/{c}".format(
